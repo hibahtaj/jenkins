@@ -12,7 +12,7 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'python3 -m pip install -r requirements'
+                sh 'python3 -m pip install -r requirements.txt'
             }
         }
 
