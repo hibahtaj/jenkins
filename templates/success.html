@@ -1,43 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Registration Successful</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #e8f5e9;
-            text-align: center;
-            padding-top: 100px;
-        }
-
-        .container {
-            background-color: white;
-            width: 400px;
-            margin: auto;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px #aaa;
-        }
-
-        h2 {
-            color: green;
-        }
-    </style>
+    <title>Success</title>
 </head>
-
 <body>
 
-<div class="container">
+<h2>Registration Successful!</h2>
 
-    <h2>Registration Successful!</h2>
+<p>Welcome, {{ name }}!</p>
 
-    <p>Welcome, <strong>{{ name }}</strong>!</p>
-
-    <p>Your email is: {{ email }}</p>
-
-    <p>Thank you for registering.</p>
-
-</div>
+<p>Your email is: {{ email }}</p>
 
 </body>
 </html>
