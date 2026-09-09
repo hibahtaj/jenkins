@@ -3,23 +3,29 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
+        stage('Build') {
             steps {
-                git branch: 'main',
-                    url: 'https://github.com/hibahtaj/jenkins.git'
+                echo "Build Docker Image"
+                sh "docker build -t mypythonflaskapp ."
             }
         }
 
-        stage('Install Dependencies') {
+        stage('Run') {
             steps {
-                sh 'python3 -m pip install -r requirements.txt'
+                echo "Run application in Docker Container"
+                sh "docker rm -f mycontainer || true"
+                sh "docker run -d -p 5001:5000 --name mycontainer mypythonflaskapp"
             }
         }
+    }
 
-        stage('Test') {
-            steps {
-                sh 'python3 -m py_compile app.py'
-            }
+    post {
+        success {
+            echo 'Pipeline completed successfully!'
+        }
+
+        failure {
+            echo 'Pipeline failed. Please check the logs.'
         }
     }
 }
