@@ -15,6 +15,6 @@ def register():
 
     return render_template("sucess.html", name=name, email=email)
 
-
+print("Jenkins build test")
 if __name__ == "__main__":
     app.run(debug=True)
